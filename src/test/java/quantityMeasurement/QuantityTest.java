@@ -55,4 +55,20 @@ public class QuantityTest {
         Assertions.assertNotSame(feet1, feet2);
     }
 
+    @Test                                                                               //Equality Check //
+    public void givenFeetWithEqualityCheck_ShouldReturnEqual() {
+        Feet feet1 = new Feet(0.0);
+        Feet feet2 = new Feet(0.0);
+        boolean equality = feet1.equals(feet2);
+        Assertions.assertTrue(equality);
+    }
+
+    @Test
+    public void givenFeet_ShouldReturnFalse() {
+        Feet feet1 = new Feet(0.0);
+        Feet feet2 = new Feet(1.0);
+        boolean notequality = feet1.equals(feet2);
+        Assertions.assertFalse(notequality);
+    }
+
 }
