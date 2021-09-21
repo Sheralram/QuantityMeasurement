@@ -78,4 +78,71 @@ public class QuantityTest {
         Assertions.assertTrue(result);
     }
 
+
+    @Test
+    public void given0Inchand0Inch_ShouldReturnEqual() {
+        Inch inch1 = new Inch(0.0);
+        Inch inch2 = new Inch(0.0);
+        Assertions.assertEquals(inch1, inch2);
+    }
+
+    @Test
+    public void given0Inchand1Inch_ShouldReturnNotEqual() {
+        Inch inch1 = new Inch(0.0);
+        Inch inch2 = new Inch(1.0);
+        Assertions.assertNotEquals(inch1, inch2);
+    }
+
+    @Test
+    public void givenInchWithSameReference_WhenCompared_ShouldReturnTrue() {
+        Inch inch1 = new Inch(0.0);
+        boolean samerefernece = inch1 == inch1;
+        Assertions.assertTrue(samerefernece);
+    }
+
+    @Test
+    public void givenInchWithDiffrentReference_WhenCompared_ShouldReturnFalse() {
+        Inch inch = new Inch(0.0);
+        Inch inch1 = new Inch(0.0);
+        boolean differentReference = inch == inch1;
+        Assertions.assertFalse(differentReference);
+    }
+
+    @Test
+    public void givenNullInch_WhenCompare_ShouldReturnFalse() {
+        Inch inch = new Inch(0.0);
+        Inch inch1 = null;
+        Assertions.assertNotEquals(inch, inch1);
+    }
+
+    @Test
+    public void givenInchWithSameType_ShouldReturnTrue() {
+        Inch inch1 = new Inch(0.0);
+        Inch inch2 = new Inch(0.0);
+        Assertions.assertEquals(inch1, inch2);
+    }
+
+    @Test
+    public void givenInchWithDifferentType_ShouldReturnFalse() {
+        Inch inch1 = new Inch(0.0);
+        Inch inch2 = new Inch(1.0);
+        Assertions.assertNotSame(inch1, inch2);
+    }
+
+    @Test
+    public void givenInchWithEqualityCheck_ShouldReturnEqual() {
+        Inch inch1 = new Inch(0.0);
+        Inch inch2 = new Inch(0.0);
+        boolean equality = inch1.equals(inch2);
+        Assertions.assertTrue(equality);
+    }
+
+    @Test
+    public void givenInch_ShouldReturnFalse() {
+        Inch inch1 = new Inch(0.0);
+        Inch inch2 = new Inch(1.0);
+        boolean notequality = inch1.equals(inch2);
+        Assertions.assertFalse(notequality);
+    }
+
 }
