@@ -71,4 +71,11 @@ public class QuantityTest {
         Assertions.assertFalse(notequality);
     }
 
+    @Test                                                                               //UC1 1ft = 12Inch //
+    public void given1FeetAnd12Inch_ShouldReturnTrue() {
+        QuantityMeasurementMain quantityMeasurementMain = new QuantityMeasurementMain();
+        boolean result = quantityMeasurementMain.inchConversion(1.0, 12);
+        Assertions.assertTrue(result);
+    }
+
 }
