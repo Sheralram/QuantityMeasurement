@@ -34,4 +34,12 @@ public class QuantityTest {
         Assertions.assertFalse(differentReference);
     }
 
+    @Test                                                                                   //Null Check //
+    public void givenNullFeet_WhenCompare_ShouldReturnFalse() {
+        Feet feet = new Feet(0.0);
+        Feet feet1 = null;
+        Assertions.assertNotEquals(feet, feet1);
+    }
+
+
 }
