@@ -8,8 +8,10 @@ public class Length {
     private static final double INCH_TO_CENTIMETER = 2.54 ;
     private static final double GALLON_TO_LITRES = 3.78;
     private static final double LITRES_TO_MILLILITRE = 1000;
+    private static final double KILOGRAM_TO_GRAM = 1000;
+    private static final double TONNE_TO_KILOGRAM = 1000;
 
-    enum Unit { FEET, INCH, YARD, CENTIMETER,GALLON, LITRES, MILLILITRE};
+    enum Unit { FEET, INCH, YARD, CENTIMETER,GALLON, LITRES, MILLILITRE,GRAM, TONNE, KILOGRAM};
 
     private final Unit unit;
     private final double value;
@@ -32,6 +34,10 @@ public class Length {
             return Double.compare(this.value * GALLON_TO_LITRES, that.value) == 0;
         if (this.unit.equals(Unit.LITRES) && that.unit.equals(Unit.MILLILITRE))
             return Double.compare(this.value * LITRES_TO_MILLILITRE, that.value) == 0;
+        if (this.unit.equals(Unit.KILOGRAM) && that.unit.equals(Unit.GRAM))
+            return Double.compare(this.value * KILOGRAM_TO_GRAM, that.value) == 0;
+        if (this.unit.equals(Unit.TONNE) && that.unit.equals(Unit.KILOGRAM))
+            return Double.compare(this.value * TONNE_TO_KILOGRAM, that.value) == 0;
         return false;
     }
 
@@ -51,6 +57,8 @@ public class Length {
             return (this.value * GALLON_TO_LITRES) + litres.value;
         if(this.unit.equals(Unit.LITRES) && litres.unit.equals(Unit.MILLILITRE))
             return (this.value * LITRES_TO_MILLILITRE) + litres.value;
+        if(this.unit.equals(Unit.TONNE) && litres.unit.equals(Unit.GRAM))
+            return (this.value * TONNE_TO_KILOGRAM) + (litres.value / KILOGRAM_TO_GRAM);
         return 0;
     }
 
