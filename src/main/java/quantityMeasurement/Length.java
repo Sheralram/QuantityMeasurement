@@ -7,6 +7,18 @@ public class Length {
     private static final double FEET_TO_YARD = 3.0;
     private static final double INCH_TO_CENTIMETER = 2.54 ;
 
+    public double addLengthsToInches(Length value) {
+        if (this.unit.equals(Unit.INCH)&&(value.unit.equals(Unit.INCH)))
+            return this.value + value.value;
+        if(this.unit.equals(Unit.FEET) && value.unit.equals(Unit.INCH))
+            return (this.value * FEET_TO_INCH) + value.value;
+        if(this.unit.equals(Unit.FEET) && value.unit.equals(Unit.FEET))
+            return (this.value * FEET_TO_INCH) + (value.value * FEET_TO_INCH);
+        if(this.unit.equals(Unit.INCH) && value.unit.equals(Unit.CENTIMETER))
+            return (this.value) + (value.value / INCH_TO_CENTIMETER);
+    return 0;
+    }
+
     enum Unit { FEET, INCH, YARD, CENTIMETER};
 
     private final Unit unit;
