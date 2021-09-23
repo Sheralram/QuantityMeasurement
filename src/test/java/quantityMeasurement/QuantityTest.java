@@ -231,21 +231,21 @@ public class QuantityTest {
         Assertions.assertTrue(compareCheck);
     }
     @Test
-    void given2InchAnd2Inch_WhenAdd_ShouldReturnFourInches() {
+   public void given2InchAnd2Inch_WhenAdd_ShouldReturnFourInches() {
         Length inch = new Length(Length.Unit.INCH, 2.0);
         Length inch1 = new Length(Length.Unit.INCH, 2.0);
         double add = inch.addLengthsToInches(inch1);
         Assertions.assertEquals(add,4);
     }
     @Test
-    void given1FeetAnd2Inch_WhenAdd_ShouldReturnFourTeenInches() {
+    public void given1FeetAnd2Inch_WhenAdd_ShouldReturnFourTeenInches() {
         Length feet = new Length(Length.Unit.FEET, 1.0);
         Length inch = new Length(Length.Unit.INCH, 2.0);
         double add = feet.addLengthsToInches(inch);
         Assertions.assertEquals(add,14);
     }
     @Test
-    void given1FeetAnd1Feet_WhenAdd_ShouldReturnTwentyFourInches() {
+    public void given1FeetAnd1Feet_WhenAdd_ShouldReturnTwentyFourInches() {
         Length feet = new Length(Length.Unit.FEET, 1.0);
         Length feet1 = new Length(Length.Unit.FEET, 1.0);
         double add = feet.addLengthsToInches(feet1);
@@ -253,14 +253,14 @@ public class QuantityTest {
     }
 
     @Test
-    void given2InchAnd2AndHalfCentimeter_WhenAdd_ShouldReturn3Inches() {
+    public void given2InchAnd2AndHalfCentimeter_WhenAdd_ShouldReturn3Inches() {
         Length inch = new Length(Length.Unit.INCH, 2.0);
         Length centimeter = new Length(Length.Unit.CENTIMETER, 2.54);
         double add = inch.addLengthsToInches(centimeter);
         Assertions.assertEquals(add,3);
     }
     @Test
-    void given1GallonAnd3And78Litres_ShouldReturnTrue() {
+    public void given1GallonAnd3And78Litres_ShouldReturnTrue() {
         Length gallon = new Length(Length.Unit.GALLON, 1.0);
         Length litre = new Length(Length.Unit.LITRES, 3.78);
         boolean compareCheck = gallon.compare(litre);
@@ -268,14 +268,14 @@ public class QuantityTest {
     }
 
     @Test
-    void given1LitreAnd3And1000Ml_ShouldReturnTrue() {
+    public void given1LitreAnd3And1000Ml_ShouldReturnTrue() {
         Length litre = new Length(Length.Unit.LITRES, 1);
         Length milliMeter = new Length(Length.Unit.MILLILITRE, 1000.0);
         boolean compareCheck = litre.compare(milliMeter);
         Assertions.assertTrue(compareCheck);
     }
     @Test
-    void given2GallonAnd3And78Litres_WhenAdd_ShouldReturn7And57Litres() {
+   public  void given2GallonAnd3And78Litres_WhenAdd_ShouldReturn7And57Litres() {
         Length gallon = new Length(Length.Unit.GALLON, 1.0);
         Length litres = new Length(Length.Unit.LITRES, 3.78);
         double add = gallon.addVolumesToLitres(litres);
@@ -283,14 +283,14 @@ public class QuantityTest {
     }
 
     @Test
-    void given1MilliLitreAnd1Litres_WhenAdd_ShouldReturn1000Litres() {
+    public void given1MilliLitreAnd1Litres_WhenAdd_ShouldReturn1000Litres() {
         Length litre = new Length(Length.Unit.LITRES, 1);
         Length millilitre = new Length(Length.Unit.MILLILITRE, 1000.0);
         double add = litre.addVolumesToLitres(millilitre);
         Assertions.assertEquals(add,2000);
     }
     @Test
-    void given1KgAnd100Grams_ShouldReturnTrue() {
+    public void given1KgAnd100Grams_ShouldReturnTrue() {
         Length kilogram = new Length(Length.Unit.KILOGRAM, 1);
         Length gram = new Length(Length.Unit.GRAM, 1000.0);
         boolean compareCheck = kilogram.compare(gram);
@@ -298,7 +298,7 @@ public class QuantityTest {
     }
 
     @Test
-    void given1TonneAnd1000Kg_ShouldReturnTrue() {
+    public void given1TonneAnd1000Kg_ShouldReturnTrue() {
         Length tonne = new Length(Length.Unit.TONNE, 1.0);
         Length kilogram = new Length(Length.Unit.KILOGRAM, 1000.0);
         boolean compareCheck = tonne.compare(kilogram);
@@ -306,11 +306,18 @@ public class QuantityTest {
     }
 
     @Test
-    void given1TonneAnd1000Gram_WhenAdded_ShouldReturn1001Kg() {
+    public void given1TonneAnd1000Gram_WhenAdded_ShouldReturn1001Kg() {
         Length tonne = new Length(Length.Unit.TONNE, 1.0);
         Length gram = new Length(Length.Unit.GRAM, 1000.0);
         double add = tonne.addVolumesToLitres(gram);
         Assertions.assertEquals(add,1001);
+    }
+    @Test
+    public void given212FahrenheitAnd100Celsius_ShouldReturnTrue() {
+        Length fah = new Length(Length.Unit.FAHRENHEIT, 212.0);
+        Length cel = new Length(Length.Unit.CELSIUS, 100.0);
+        boolean compareCheck = fah.compare(cel);
+        Assertions.assertTrue(compareCheck);
     }
 
 
